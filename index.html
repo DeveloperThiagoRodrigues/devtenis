@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>Dev Tênis</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">História</a></li>
+                <li><a href="#">Galeria</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="text-container">
+            <h1>SPORTS<br><span>TÊNIS</span></h1>
+            <p>O clássico reinventado para quem exige presença e performance.
+                Com amortecimento Air Max visível e design icônico inspirado nas linhas urbanas de Barcelona, o TN
+                entrega conforto extremo e estilo marcante em cada passo.
+                Disponível online com exclusividade.</p>
+            <a href="#" class="button">Mostrar agora</a>
+        </div>
+
+        <div class="image-container">
+            <img src="Assets/01.png" alt="Shoes" class="shoe-image" width="450px">
+            <div class="product-icons">
+                <div class="icon active" data-shoe="1">
+                    <img src="Assets/01.png" width="120px">
+                </div>
+                <div class="icon" data-shoe="2">
+                    <img src="Assets/02.png" width="120px">
+                </div>
+                <div class="icon" data-shoe="3">
+                    <img src="Assets/03.png" width="120px">
+                </div>
+                <div class="icon" data-shoe="4">
+                    <img src="Assets/04.png" width="120px">
+                </div>
+            </div>
+        </div>
+
+        <div class="more-button">
+            <span>Mostar</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <section id="historia" class="section">
+    <h2>História</h2>
+    <p>
+        Inspirado nas grandes capitais da moda urbana, o Air Max TN nasceu para unir
+        tecnologia Tuned Air e design marcante. Desde seu lançamento, tornou-se símbolo
+        de atitude, conforto e inovação no universo sneaker.
+    </p>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="section">
+    <h2>Galeria</h2>
+    <div class="gallery-grid">
+        <img src="Assets/01.png" class="gallery-img">
+        <img src="Assets/02.png" class="gallery-img">
+        <img src="Assets/03.png" class="gallery-img">
+        <img src="Assets/04.png" class="gallery-img">
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="section">
+    <h2>Sobre</h2>
+    <p>
+        Este é um projeto demonstrativo criado para apresentar um layout moderno
+        de e-commerce esportivo. Foco em performance, experiência do usuário
+        e interação dinâmica.
+    </p>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section">
+    <h2>Contato</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Seu Nome">
+        <input type="email" placeholder="Seu Email">
+        <textarea placeholder="Sua Mensagem"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<!-- MODAL FULLSCREEN -->
+<div class="modal" id="imageModal">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2026 Todos os direitos reservados</p>
+        <p>Desenvolvido por <strong>Thiago Karpovicz Rodrigues</strong></p>
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

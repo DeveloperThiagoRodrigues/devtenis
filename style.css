@@ -1,0 +1,379 @@
+
+
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #3204d6, #090270);
+    min-height: 100vh;
+    color: white;
+}
+
+header{
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav  li {
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+nav a.active{
+    color: #FF0000;
+    font-weight: 600;
+}
+
+.hero{
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.text-container{
+    max-width: 500px;
+    margin-right: 80px;
+}
+
+h1{
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+h1 span{
+    color: #FF0000;
+}
+
+p{
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.button{
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #FF0000;
+    border-radius: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.button:hover{
+    background-color: #FF0000;
+}
+
+.shoe-image{
+    width: 850px;
+    height: auto;
+    margin-top: 50px;
+}
+
+.product-icons{
+    position: absolute;
+    right: 0;
+    top: 70%;
+    transform: translateY(-55%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+    margin-right: 30px;
+    box-shadow: 0 0 20px #8b0000;
+    background-color: #8b0000;
+    border: 1px solid #8b0000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    border-radius: 80px;
+    background-color: #ccc;
+    border: 1px solid #8b0000;
+}
+
+.icon.active{
+    background-color: #FF0000;
+    border: 2px solid #ccc;
+}
+
+.more-button{
+    position: absolute;
+    top: 600px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.arrow{
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.more-button:hover .arrow{
+    border-color: #FF0000;
+}
+
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-grid img {
+    width: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer{
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.footer strong{
+    color: #FF0000;
+}
+
+.footer p{
+    margin: 0;
+}
+
+
+/*TABLET (até 1024px)*/
+
+
+@media (max-width: 1024px){
+
+    .hero{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container{
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .shoe-image{
+        width: 600px;
+        margin-top: 40px;
+    }
+
+    .product-icons{
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+        transform: none;
+    }
+
+    .more-button{
+        position: static;
+        justify-content: center;
+        margin-top: 40px;
+    }
+}
+
+/*CELULAR (até 768px)*/
+
+@media (max-width: 768px){
+
+    header{
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    h1{
+        font-size: 2.8rem;
+    }
+
+    p{
+        font-size: 13px;
+    }
+
+    .shoe-image{
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .icon{
+        width: 55px;
+        height: 55px;
+    }
+
+    .icon img{
+        width: 45px;
+        height: 45px;
+    }
+
+    .gallery-grid img{
+        width: 150px;
+    }
+
+    .section{
+        padding: 60px 20px;
+    }
+
+    .modal-content{
+        max-width: 95%;
+        max-height: 70%;
+    }
+}
+
+/*CELULAR PEQUENO (até 480px)*/
+
+@media (max-width: 480px){
+
+    h1{
+        font-size: 2.2rem;
+    }
+
+    .button{
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+
+    .contact-form{
+        width: 100%;
+    }
+
+    .gallery-grid{
+        gap: 15px;
+    }
+
+    .gallery-grid img{
+        width: 120px;
+    }
+
+    .icon{
+        width: 45px;
+        height: 45px;
+    }
+
+    .icon img{
+        width: 35px;
+        height: 35px;
+    }
+}
