@@ -7,82 +7,77 @@ const shoes = [
 
 let currentIndex = 0;
 
-const mainImage = document.querySelector('.shoe-image');
+const mainImage = document.getElementById('mainShoe');
 const icons = document.querySelectorAll('.icon');
 const navLinks = document.querySelectorAll('nav a');
-const arrow = document.querySelector('.more-button');
-const showButton = document.querySelector('.button');
-
-// MODAL
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close-btn");
 
-// TROCAR IMAGEM
+// Atualiza imagem principal
 function updateImage(index) {
     currentIndex = index;
     mainImage.src = shoes[index].image;
+    mainImage.style.opacity = 0;
+    setTimeout(() => {
+        mainImage.style.opacity = 1;
+    }, 200);
 
-    icons.forEach(icon => icon.classList.remove('active'));
+    icons.forEach(i => i.classList.remove('active'));
     document.querySelector(`[data-shoe="${index + 1}"]`).classList.add('active');
 }
 
-// CLIQUE NOS ICONES
-icons.forEach((icon, index) => {
-    icon.addEventListener('click', () => {
-        updateImage(index);
-    });
+// Clique nos ícones
+icons.forEach((icon, idx) => {
+    icon.addEventListener('click', () => updateImage(idx));
 });
 
-// MENU ATIVO
+// Navegação suave + active
 navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
+    link.addEventListener('click', e => {
         e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
 
-        navLinks.forEach(item => item.classList.remove('active'));
-        this.classList.add('active');
-
-        const target = this.textContent.toLowerCase();
-        const section = document.getElementById(target);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-        }
+        const targetId = link.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// BOTÃO ARROW (CARROSSEL)
-arrow.addEventListener('click', () => {
-    currentIndex++;
-    if (currentIndex >= shoes.length) {
-        currentIndex = 0;
-    }
+// Carrossel com seta (opcional, se quiser manter)
+document.querySelector('.scroll-hint i')?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % shoes.length;
     updateImage(currentIndex);
 });
 
-// BOTÃO MOSTRAR AGORA (ABRIR MODAL)
-showButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = "flex";
-    modalImg.src = mainImage.src;
-});
-
-// FECHAR MODAL
-closeBtn.addEventListener('click', () => {
-    modal.style.display = "none";
-});
-
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-});
-
-// GALERIA ABRE FULLSCREEN
-document.querySelectorAll('.gallery-img').forEach(img => {
-    img.addEventListener('click', () => {
+// Modal para galeria e botão comprar
+document.querySelectorAll('.gallery-img, .neon-btn').forEach(el => {
+    el.addEventListener('click', e => {
+        if (el.classList.contains('neon-btn')) e.preventDefault();
         modal.style.display = "flex";
-        modalImg.src = img.src;
+        modalImg.src = mainImage.src; // ou img.src se for galeria
     });
+});
+
+closeBtn.addEventListener('click', () => modal.style.display = "none");
+modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = "none"; });
+
+// Partículas neon
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 5 + 2;
+    p.style.width = p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDelay = Math.random() * 15 + 's';
+    p.style.animationDuration = (15 + Math.random() * 25) + 's';
+    particlesContainer.appendChild(p);
+}
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 100);
 });
 
 updateImage(0);
